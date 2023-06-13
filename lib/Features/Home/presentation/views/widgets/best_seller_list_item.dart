@@ -1,24 +1,68 @@
+import 'package:bookify/Features/Home/presentation/views/widgets/aspect_ratio_image.dart';
+import 'package:bookify/core/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import 'book_rating.dart';
 
 class BestSellerListItem extends StatelessWidget {
   const BestSellerListItem({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: 120,
+      margin: const EdgeInsets.symmetric(vertical: 12),
       child: Row(
         children: [
-          AspectRatio(
+          const AspectRatioImage(
             aspectRatio: 2.5 / 4,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.amber,
-                borderRadius: BorderRadius.circular(8),
-                image: const DecorationImage(
-                    fit: BoxFit.cover,
-                    image: NetworkImage(
-                        'https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80')),
+            borderRadius: 8,
+          ),
+          const SizedBox(width: 24),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 4),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.6,
+                    child: Text(
+                      'Harry Potter\nand the Goblet of fire',
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: Styles.textStyle20.copyWith(
+                          fontFamily: GoogleFonts.playfairDisplay().toString()),
+                    ),
+                  ),
+                  const Spacer(),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.6,
+                    child: Text(
+                      'J.K Rowling',
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: Styles.textStyle14.copyWith(
+                          fontFamily: GoogleFonts.playfairDisplay().toString(),
+                          color: Colors.grey.shade400),
+                    ),
+                  ),
+                  const Spacer(),
+                  Row(
+                    children: [
+                      Text(
+                        '19.58 \$',
+                        style: Styles.textStyle20.copyWith(
+                          fontFamily: GoogleFonts.aBeeZee().toString(),
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const Spacer(),
+                      const BookRating(),
+                    ],
+                  ),
+                ],
               ),
             ),
           )

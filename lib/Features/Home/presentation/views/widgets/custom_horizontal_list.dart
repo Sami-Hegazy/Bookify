@@ -8,15 +8,15 @@ class CustomHorizontalList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      //width: MediaQuery.of(context).size.width * 0.38,
-      height: MediaQuery.of(context).size.height * 0.3,
+      height: MediaQuery.of(context).size.height * 0.26,
       child: ListView.builder(
+        padding: EdgeInsets.zero,
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: 5,
         itemBuilder: (context, index) {
           return const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8),
+            padding: EdgeInsets.symmetric(horizontal: 6),
             child: HorizonatlListViewItem(),
           );
         },
