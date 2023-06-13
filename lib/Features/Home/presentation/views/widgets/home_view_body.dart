@@ -1,3 +1,4 @@
+import 'package:bookify/Features/Home/presentation/views/widgets/custom_horizontal_list.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -5,6 +6,14 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column();
+    return const Expanded(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          CustomHorizontalList(),
+          Text('text'),
+        ],
+      ),
+    );
   }
 }
