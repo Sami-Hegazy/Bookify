@@ -1,3 +1,5 @@
+import 'package:bookify/Features/Home/presentation/views/widgets/home_view_body.dart';
+import 'package:bookify/Features/Home/presentation/views/widgets/home_view_header.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -5,9 +7,14 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text('teeeeeeeeeeeeeeeeeeeeeext'),
+    return const SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: [
+            HomeViewHeader(),
+            HomeViewBody(),
+          ],
+        ),
       ),
     );
   }

@@ -1,5 +1,5 @@
 import 'package:bookify/Features/Splash/presentation/views/splash_view.dart';
-import 'package:bookify/core/constants.dart';
+import 'package:bookify/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
@@ -15,7 +15,7 @@ class BookifyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: kPrimaryColor,
+        scaffoldBackgroundColor: MyColors.kPrimaryColor,
       ),
       home: const SplashView(),
     );
