@@ -1,10 +1,9 @@
 import 'dart:async';
 import 'dart:math';
-import 'package:bookify/Features/Home/presentation/views/home_view.dart';
-import 'package:bookify/core/constants.dart';
+import 'package:bookify/core/utils/app_routes.dart';
 import 'package:bookify/core/utils/assets.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -53,8 +52,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void navigateToHome() {
     Future.delayed(const Duration(seconds: 5), () {
-      Get.off(const HomeView(),
-          transition: Transition.fadeIn, duration: kTransitionDuration);
+      GoRouter.of(context).pushReplacement(AppRoutes.kHomeView);
     });
   }
 
