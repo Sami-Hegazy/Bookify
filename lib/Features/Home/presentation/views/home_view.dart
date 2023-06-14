@@ -1,5 +1,7 @@
 import 'package:bookify/Features/Home/presentation/views/widgets/home_view_body.dart';
+import 'package:bookify/core/utils/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../core/utils/assets.dart';
 
 class HomeView extends StatelessWidget {
@@ -13,12 +15,20 @@ class HomeView extends StatelessWidget {
           toolbarHeight: 110,
           elevation: 0,
           backgroundColor: Colors.transparent,
-          centerTitle: true,
           title: Image.asset(
             AssetsImage.kLogoImage,
-            height: 80,
-            width: 80,
+            height: 60,
+            width: 60,
           ),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                FontAwesomeIcons.magnifyingGlass,
+                color: MyColors.kSecondaryColor,
+              ),
+            ),
+          ],
         ),
         body: const HomeViewBody(),
       ),
