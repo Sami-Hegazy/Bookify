@@ -6,23 +6,20 @@ class BookDetailsHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-      child: Row(
-        children: [
-          IconButton(
-            onPressed: () {
-              GoRouter.of(context).pop();
-            },
-            icon: const Icon(Icons.close),
-          ),
-          const Spacer(),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.shopping_cart_outlined),
-          ),
-        ],
-      ),
+    return Row(
+      children: [
+        IconButton(
+          onPressed: () {
+            GoRouter.of(context).pop();
+          },
+          icon: const Icon(Icons.close),
+        ),
+        const Spacer(),
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.shopping_cart_outlined),
+        ),
+      ],
     );
   }
 }
