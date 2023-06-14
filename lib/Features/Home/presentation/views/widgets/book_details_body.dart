@@ -2,6 +2,7 @@ import 'package:bookify/Features/Home/presentation/views/widgets/aspect_ratio_im
 import 'package:bookify/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'book_actions.dart';
 import 'book_details_header.dart';
 import 'book_rating.dart';
 
@@ -37,6 +38,8 @@ class BookDetailsBody extends StatelessWidget {
         ),
         const SizedBox(height: 12),
         const BookRating(),
+        const SizedBox(height: 37),
+        const BooksActions(),
       ],
     );
   }
