@@ -1,4 +1,4 @@
-import 'package:bookify/Features/Home/presentation/views/widgets/custom_horizontal_list.dart';
+import 'package:bookify/Features/Home/presentation/views/widgets/featured_books_listview.dart';
 import 'package:bookify/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +17,7 @@ class HomeViewBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 16),
-              CustomHorizontalList(),
+              FeaturedBoxListView(),
               Padding(
                 padding: EdgeInsets.only(top: 36, left: 24, bottom: 8),
                 child: Text(
