@@ -1,3 +1,4 @@
+import 'package:bookify/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
@@ -8,18 +9,20 @@ class SimilarBooksSections extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 12),
+          padding: const EdgeInsets.only(left: 12),
           child: Text(
             'You can also like',
-            style: Styles.textStyle18,
+            style: Styles.textStyle18.copyWith(
+              fontFamily: FontAsset.kPlayFireFont,
+            ),
           ),
         ),
-        SizedBox(height: 24),
-        BookDetailsHorizontalList(),
+        const SizedBox(height: 24),
+        const BookDetailsHorizontalList(),
       ],
     );
   }

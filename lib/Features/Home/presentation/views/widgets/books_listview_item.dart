@@ -1,9 +1,9 @@
 import 'package:bookify/Features/Home/presentation/views/widgets/aspect_ratio_image.dart';
 import 'package:bookify/core/utils/app_routes.dart';
+import 'package:bookify/core/utils/assets.dart';
 import 'package:bookify/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'book_rating.dart';
 
@@ -41,8 +41,8 @@ class BooksListViewItem extends StatelessWidget {
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: Styles.textStyle20.copyWith(
-                            fontFamily:
-                                GoogleFonts.playfairDisplay().toString()),
+                          fontFamily: FontAsset.kPlayFireFont,
+                        ),
                       ),
                     ),
                     const Spacer(),
@@ -53,8 +53,7 @@ class BooksListViewItem extends StatelessWidget {
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: Styles.textStyle14.copyWith(
-                            fontFamily:
-                                GoogleFonts.playfairDisplay().toString(),
+                            fontFamily: FontAsset.kRoboto,
                             color: Colors.grey.shade400),
                       ),
                     ),
@@ -64,7 +63,7 @@ class BooksListViewItem extends StatelessWidget {
                         Text(
                           '19.58 \$',
                           style: Styles.textStyle20.copyWith(
-                            fontFamily: GoogleFonts.aBeeZee().toString(),
+                            fontFamily: FontAsset.kRoboto,
                             fontWeight: FontWeight.bold,
                           ),
                         ),

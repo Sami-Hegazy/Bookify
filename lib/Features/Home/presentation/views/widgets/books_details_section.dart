@@ -1,5 +1,5 @@
+import 'package:bookify/core/utils/assets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../../../../../core/utils/styles.dart';
 import 'aspect_ratio_image.dart';
 import 'book_actions.dart';
@@ -27,6 +27,7 @@ class BookDetailsSection extends StatelessWidget {
           'The Jungle Book',
           style: Styles.textStyle30.copyWith(
             fontWeight: FontWeight.bold,
+            fontFamily: FontAsset.kPlayFireFont,
           ),
         ),
         const SizedBox(height: 8),
@@ -34,7 +35,7 @@ class BookDetailsSection extends StatelessWidget {
           'Rudyard Kipling',
           style: Styles.textStyle18.copyWith(
             fontWeight: FontWeight.w500,
-            fontFamily: GoogleFonts.gildaDisplay().toString(),
+            fontFamily: FontAsset.kRoboto,
             color: Colors.grey.shade400,
             fontStyle: FontStyle.italic,
           ),

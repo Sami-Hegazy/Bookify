@@ -1,3 +1,4 @@
+import 'package:bookify/core/utils/assets.dart';
 import 'package:bookify/core/utils/colors.dart';
 import 'package:bookify/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,10 @@ class BooksActions extends StatelessWidget {
           Expanded(
             child: CustomButton(
               text: 'Free Preview',
-              textColor: Colors.white,
+              textStyle: const TextStyle(
+                fontFamily: FontAsset.kRoboto,
+                color: Colors.white,
+              ),
               onPressed: () {},
               backgroundColor: MyColors.kWarmOrange,
               borderRadius: const BorderRadius.only(
