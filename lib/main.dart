@@ -25,7 +25,9 @@ class BookifyApp extends StatelessWidget {
             ..fetchFeaturedBooks(),
         ),
         BlocProvider(
-            create: (context) => NewestBooksCubit(getIt.get<HomeRepoImp>())),
+          create: (context) =>
+              NewestBooksCubit(getIt.get<HomeRepoImp>())..ferchNewestBookks(),
+        ),
       ],
       child: MaterialApp.router(
         routerConfig: AppRoutes.router,

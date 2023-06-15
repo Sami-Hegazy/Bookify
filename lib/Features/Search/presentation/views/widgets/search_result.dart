@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../Home/presentation/views/widgets/books_listview_item.dart';
-
 class SearchResult extends StatelessWidget {
   const SearchResult({super.key});
 
@@ -11,7 +9,7 @@ class SearchResult extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       itemCount: 10,
       itemBuilder: (context, index) {
-        return const BooksListViewItem();
+        return const Text('data');
       },
     );
   }

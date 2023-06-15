@@ -5,8 +5,9 @@ import '../../../../../core/utils/colors.dart';
 import '../../../../../core/utils/styles.dart';
 
 class BookRating extends StatelessWidget {
-  const BookRating({super.key});
-
+  const BookRating({super.key, required this.rating, required this.count});
+  final int rating;
+  final String count;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -19,14 +20,14 @@ class BookRating extends StatelessWidget {
         ),
         const SizedBox(width: 6.3),
         Text(
-          '4.8',
+          rating.toString(),
           style: Styles.textStyle16.copyWith(
             fontWeight: FontWeight.bold,
           ),
         ),
         const SizedBox(width: 6),
         Text(
-          '(485)',
+          '($count)',
           style: Styles.textStyle14.copyWith(color: Colors.grey.shade400),
         ),
       ],
