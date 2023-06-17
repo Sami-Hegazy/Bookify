@@ -24,8 +24,8 @@ class NewestBooksListViewItem extends StatelessWidget {
           children: [
             AspectRatioImage(
               aspectRatio: 2.5 / 4,
-              borderRadius: 8,
-              imageUrl: bookModel.volumeInfo.imageLinks.thumbnail,
+              borderRadius: BorderRadius.circular(6),
+              imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
             ),
             const SizedBox(width: 24),
             Expanded(

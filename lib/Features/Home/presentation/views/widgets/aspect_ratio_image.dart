@@ -10,12 +10,12 @@ class AspectRatioImage extends StatelessWidget {
     required this.imageUrl,
   });
   final double aspectRatio;
-  final double? borderRadius;
+  final BorderRadiusGeometry? borderRadius;
   final String imageUrl;
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: borderRadius ?? BorderRadius.circular(16),
       child: AspectRatio(
         aspectRatio: aspectRatio,
         child: CachedNetworkImage(

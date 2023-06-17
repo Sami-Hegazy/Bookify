@@ -18,7 +18,7 @@ class HomeViewBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              HomeHeader(),
+              const HomeHeader(),
               const SizedBox(height: 16),
               const FeaturedBoxListView(),
               Padding(

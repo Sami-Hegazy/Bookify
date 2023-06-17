@@ -1,7 +1,7 @@
 import 'package:bookify/Features/Home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookify/Features/Home/presentation/views/widgets/aspect_ratio_image.dart';
 import 'package:bookify/core/widgets/custom_error_widget.dart';
-import 'package:bookify/core/widgets/custom_loading_indicator.dart';
+import 'package:bookify/core/widgets/simmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,7 +26,8 @@ class FeaturedBoxListView extends StatelessWidget {
                   child: AspectRatioImage(
                     aspectRatio: 2.5 / 4,
                     imageUrl:
-                        state.books[index].volumeInfo.imageLinks.thumbnail,
+                        state.books[index].volumeInfo.imageLinks?.thumbnail ??
+                            '',
                   ),
                 );
               },
@@ -35,7 +36,7 @@ class FeaturedBoxListView extends StatelessWidget {
         } else if (state is FeaturedBooksFailure) {
           return CustomErrorWidget(errorMessage: state.errorMessage);
         } else {
-          return const CustsomLoadingIndicator();
+          return const BuildHorizonatlListShimmer();
         }
       },
     );

@@ -2,8 +2,7 @@ import 'package:bookify/Features/Home/presentation/manager/newest_books_cubit/ne
 import 'package:bookify/core/widgets/custom_error_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shimmer/shimmer.dart';
-
+import '../../../../../core/widgets/simmer.dart';
 import 'newest_books_listview_item.dart';
 
 class NewestBooksListView extends StatelessWidget {
@@ -26,16 +25,12 @@ class NewestBooksListView extends StatelessWidget {
         } else if (state is NewestBooksFailure) {
           return CustomErrorWidget(errorMessage: state.errorMessage);
         } else {
-          return Shimmer(
-            gradient: const LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [Colors.blue, Colors.green],
-            ),
-            child: Container(
-              height: 200,
-              color: Colors.transparent,
-            ),
+          return ListView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: 6,
+            itemBuilder: (context, index) {
+              return const BuildListViewShimmer();
+            },
           );
         }
       },
