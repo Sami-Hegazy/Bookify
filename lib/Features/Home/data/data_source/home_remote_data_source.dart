@@ -1,4 +1,7 @@
+import 'package:bookify/Features/Home/data/models/book_model/book_model.dart';
 import 'package:bookify/Features/Home/domain/entities/book_entity.dart';
+import 'package:bookify/core/utils/api_service.dart';
+import 'package:flutter/cupertino.dart';
 
 abstract class HomeRemoteDataSource {
   Future<List<BookEntity>> fetchFeaturedBooks();
@@ -6,9 +9,31 @@ abstract class HomeRemoteDataSource {
 }
 
 class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
+  ApiService apiService;
+  HomeRemoteDataSourceImpl({
+    required this.apiService,
+  });
+
   @override
-  Future<List<BookEntity>> fetchFeaturedBooks() {
-    throw UnimplementedError();
+  Future<List<BookEntity>> fetchFeaturedBooks() async {
+    var data = await apiService.get(
+        endPoint: 'volumes?Filtering=free-ebooks&q=computer science');
+
+    List<BookEntity> books = getBookList(data);
+
+    return books;
+  }
+
+  List<BookEntity> getBookList(Map<String, dynamic> data) {
+    List<BookEntity> books = [];
+    for (var bookMap in data['items']) {
+      try {
+        books.add(BookModel.fromJson(bookMap));
+      } catch (e) {
+        debugPrint(bookMap);
+      }
+    }
+    return books;
   }
 
   @override
