@@ -23,12 +23,10 @@ class ServerFailure extends Failure {
       case DioExceptionType.cancel:
         return ServerFailure(errMessage: 'Request Canceled');
       case DioExceptionType.connectionError:
-        return ServerFailure(errMessage: 'Connection error');
+        return ServerFailure(errMessage: 'No Internet Connection');
       case DioExceptionType.unknown:
-        if (dioException.message!.contains('SocketException')) {
-          return ServerFailure(errMessage: 'No Internet Connection');
-        }
-        return ServerFailure(errMessage: 'Unkown Error');
+        return ServerFailure(
+            errMessage: 'Opps there was an error, Please try again later!r');
       case DioExceptionType.badCertificate:
         return ServerFailure(errMessage: 'Bad Certificate');
       default:

@@ -4,6 +4,7 @@ import 'package:bookify/Features/Home/domain/Repo/home_repo.dart';
 import 'package:bookify/Features/Home/domain/entities/book_entity.dart';
 import 'package:bookify/core/errors/failures.dart';
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 
 class HomeRepoImp implements HomeRepo {
   final HomeRemoteDataSource homeRemoteDataSource;
@@ -15,13 +16,17 @@ class HomeRepoImp implements HomeRepo {
   @override
   Future<Either<Failure, List<BookEntity>>> fetchFeaturedBooks() async {
     try {
-      var cashedBooks = homeLocalDataSource.fetchFeaturedBooks();
-      if (cashedBooks.isNotEmpty) {
-        return right(cashedBooks);
+      List<BookEntity> books;
+      books = homeLocalDataSource.fetchFeaturedBooks();
+      if (books.isNotEmpty) {
+        return right(books);
       }
-      var books = await homeRemoteDataSource.fetchFeaturedBooks();
+      books = await homeRemoteDataSource.fetchFeaturedBooks();
       return right(books);
     } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      }
       return left(ServerFailure(errMessage: e.toString()));
     }
   }
@@ -29,13 +34,18 @@ class HomeRepoImp implements HomeRepo {
   @override
   Future<Either<Failure, List<BookEntity>>> fetchNewestBooks() async {
     try {
-      var cashedBooks = homeLocalDataSource.fetchNewestBooks();
-      if (cashedBooks.isNotEmpty) {
-        return right(cashedBooks);
+      List<BookEntity> books;
+
+      books = homeLocalDataSource.fetchNewestBooks();
+      if (books.isNotEmpty) {
+        return right(books);
       }
-      var books = await homeRemoteDataSource.fetchNewestBooks();
+      books = await homeRemoteDataSource.fetchNewestBooks();
       return right(books);
     } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      }
       return left(ServerFailure(errMessage: e.toString()));
     }
   }
