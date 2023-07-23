@@ -1,4 +1,4 @@
-import 'package:bookify/Features/Home/data/Repo/home_repo_impl.dart';
+import 'package:bookify/Features/Home/domain/Repo/home_repo_impl.dart';
 import 'package:bookify/Features/Home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookify/Features/Home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
 import 'package:bookify/core/utils/colors.dart';

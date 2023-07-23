@@ -1,4 +1,4 @@
-import 'package:bookify/Features/Home/data/models/book_model/book_model.dart';
+import 'package:bookify/Features/Home/domain/models/book_model/book_model.dart';
 import 'package:bookify/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/styles.dart';
