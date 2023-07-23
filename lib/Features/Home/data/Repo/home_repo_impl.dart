@@ -51,69 +51,21 @@ class HomeRepoImp implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<BookEntity>>> fetchSimilarBooks(
-      {required String category}) {
-    // TODO: implement fetchSimilarBooks
-    throw UnimplementedError();
+  Future<Either<Failure, List<BookEntity>>> fetchSimilarBooks() async {
+    try {
+      List<BookEntity> books;
+
+      books = homeLocalDataSource.fetchSimilarBooks();
+      if (books.isNotEmpty) {
+        return right(books);
+      }
+      books = await homeRemoteDataSource.fetchNewestBooks();
+      return right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(ServerFailure(errMessage: e.toString()));
+    }
   }
-
-  // @override
-  // Future<Either<Failure, List<BookModel>>> fetchNewestBooks() async {
-  //   try {
-  //     var data = await apiService.get(
-  //         endPoint: 'volumes?Filtering=free-ebooks&q=computer science');
-  //     List<BookModel> books = [];
-  //     for (var i in data['items']) {
-  //       try {
-  //         books.add(BookModel.fromJson(i));
-  //       } catch (e) {
-  //         debugPrint(i);
-  //       }
-  //     }
-  //     return right(books);
-  //   } catch (e) {
-  //     if (e is DioException) {
-  //       return left(ServerFailure.fromDioError(e));
-  //     }
-  //     return left(ServerFailure(errMessage: e.toString()));
-  //   }
-  // }
-
-  // @override
-  // Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
-  //   try {
-  //     var data = await apiService.get(
-  //         endPoint: 'volumes?Filtering=free-ebooks&q=subject:programming');
-  //     List<BookModel> books = [];
-  //     for (var i in data['items']) {
-  //       books.add(BookModel.fromJson(i));
-  //     }
-  //     return right(books);
-  //   } catch (e) {
-  //     if (e is DioException) {
-  //       return left(ServerFailure.fromDioError(e));
-  //     }
-  //     return left(ServerFailure(errMessage: e.toString()));
-  //   }
-  // }
-
-  // @override
-  // Future<Either<Failure, List<BookModel>>> fetchSimilarBooks(
-  //     {required String category}) async {
-  //   try {
-  //     var data = await apiService.get(
-  //         endPoint:
-  //             'volumes?Filtering=free-ebooks&q=subject:programming&Sorting=relevance');
-  //     List<BookModel> books = [];
-  //     for (var i in data['items']) {
-  //       books.add(BookModel.fromJson(i));
-  //     }
-  //     return right(books);
-  //   } catch (e) {
-  //     if (e is DioException) {
-  //       return left(ServerFailure.fromDioError(e));
-  //     }
-  //     return left(ServerFailure(errMessage: e.toString()));
-  //   }
-  // }
 }

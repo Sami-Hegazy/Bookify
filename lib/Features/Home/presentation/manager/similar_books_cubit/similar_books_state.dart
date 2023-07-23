@@ -12,7 +12,7 @@ class SimilarBooksCubitInitial extends SimilarBooksState {}
 class SimilarBooksCubitLoading extends SimilarBooksState {}
 
 class SimilarBooksCubitSuccess extends SimilarBooksState {
-  final List<BookModel> books;
+  final List<BookEntity> books;
 
   const SimilarBooksCubitSuccess(this.books);
 }

@@ -8,6 +8,7 @@ import '../../../../core/utils/functions/cache_books.dart';
 abstract class HomeRemoteDataSource {
   Future<List<BookEntity>> fetchFeaturedBooks();
   Future<List<BookEntity>> fetchNewestBooks();
+  Future<List<BookEntity>> fetchSimilarBooks();
 }
 
 class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
@@ -33,6 +34,17 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
 
     List<BookEntity> books = getBookList(data);
     cacheBooksDate(books, kNewestBox);
+    return books;
+  }
+
+  @override
+  Future<List<BookEntity>> fetchSimilarBooks() async {
+    var data = await apiService.get(
+        endPoint:
+            'volumes?Filtering=free-ebooks&q=subject:programming&Sorting=relevance');
+
+    List<BookEntity> books = getBookList(data);
+    cacheBooksDate(books, kSimilarBox);
     return books;
   }
 
