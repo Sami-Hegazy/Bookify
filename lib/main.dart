@@ -16,7 +16,7 @@ void main() async {
   runApp(const BookifyApp());
 
   Hive.registerAdapter(BookEntityAdapter());
-  await Hive.openBox(kfeaturedBox);
+  await Hive.openBox(kFeaturedBox);
 }
 
 class BookifyApp extends StatelessWidget {

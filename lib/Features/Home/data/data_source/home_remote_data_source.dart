@@ -1,7 +1,9 @@
 import 'package:bookify/Features/Home/data/models/book_model/book_model.dart';
 import 'package:bookify/Features/Home/domain/entities/book_entity.dart';
+import 'package:bookify/core/constants.dart';
 import 'package:bookify/core/utils/api_service.dart';
 import 'package:flutter/cupertino.dart';
+import '../../../../core/utils/functions/cache_books.dart';
 
 abstract class HomeRemoteDataSource {
   Future<List<BookEntity>> fetchFeaturedBooks();
@@ -20,7 +22,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
         endPoint: 'volumes?Filtering=free-ebooks&q=computer science');
 
     List<BookEntity> books = getBookList(data);
-
+    cacheBooksDate(books, kFeaturedBox);
     return books;
   }
 
