@@ -1,6 +1,5 @@
 import 'package:bookify/core/constants.dart';
 import 'package:hive_flutter/adapters.dart';
-
 import '../../domain/entities/book_entity.dart';
 
 abstract class HomeLocalDataSource {
