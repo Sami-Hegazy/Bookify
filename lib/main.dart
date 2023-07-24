@@ -20,6 +20,7 @@ void main() async {
 
   await Hive.openBox<BookEntity>(kFeaturedBox);
   await Hive.openBox<BookEntity>(kNewestBox);
+  await Hive.openBox<BookEntity>(kSimilarBox);
 
   Bloc.observer = SimpleBlocObserver();
   runApp(const BookifyApp());

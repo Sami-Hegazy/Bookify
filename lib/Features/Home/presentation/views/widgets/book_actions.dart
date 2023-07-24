@@ -1,4 +1,4 @@
-import 'package:bookify/Features/Home/data/models/book_model/book_model.dart';
+import 'package:bookify/Features/Home/domain/entities/book_entity.dart';
 import 'package:bookify/core/utils/assets.dart';
 import 'package:bookify/core/utils/colors.dart';
 import 'package:bookify/core/utils/functions/launch_url.dart';
@@ -6,9 +6,9 @@ import 'package:bookify/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class BooksActions extends StatelessWidget {
-  const BooksActions({super.key, required this.bookModel});
+  const BooksActions({super.key, required this.bookEntity});
 
-  final BookModel bookModel;
+  final BookEntity bookEntity;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -30,13 +30,13 @@ class BooksActions extends StatelessWidget {
           ),
           Expanded(
             child: CustomButton(
-              text: getText(bookModel),
+              text: getText(bookEntity),
               textStyle: const TextStyle(
                 fontFamily: FontAsset.kRoboto,
                 color: Colors.white,
               ),
               onPressed: () async {
-                launchCustomUrl(context, bookModel.volumeInfo.previewLink!);
+                launchCustomUrl(context, bookEntity.previewLink);
               },
               backgroundColor: MyColors.kWarmOrange,
               borderRadius: const BorderRadius.only(
@@ -50,8 +50,8 @@ class BooksActions extends StatelessWidget {
     );
   }
 
-  String getText(BookModel bookModel) {
-    if (bookModel.volumeInfo.previewLink == null) {
+  String getText(BookEntity bookEntity) {
+    if (bookEntity.previewLink == null) {
       return 'Not Available';
     } else {
       return 'Free Preview';

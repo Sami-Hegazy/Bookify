@@ -32,6 +32,7 @@ class BookModel extends BookEntity {
               volumeInfo.authors?.first ?? 'No Name was found for this author',
           price: 0.0,
           rating: volumeInfo.maturityRating,
+          previewLink: volumeInfo.previewLink,
         );
 
   factory BookModel.fromJson(Map<String, dynamic> json) => BookModel(

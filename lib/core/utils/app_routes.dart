@@ -1,5 +1,5 @@
 import 'package:bookify/Features/Home/data/Repo/home_repo_impl.dart';
-import 'package:bookify/Features/Home/data/models/book_model/book_model.dart';
+import 'package:bookify/Features/Home/domain/entities/book_entity.dart';
 import 'package:bookify/Features/Home/domain/use%20cases/fetch_similar_books_use_case.dart';
 import 'package:bookify/Features/Home/presentation/manager/similar_books_cubit/similar_books_cubit.dart';
 import 'package:bookify/Features/Home/presentation/views/book_details_view.dart';
@@ -31,7 +31,7 @@ abstract class AppRoutes {
           create: (context) => SimilarBooksCubit(
               fetchSimilarBooksUseCase:
                   FetchSimilarBooksUseCase(getIt.get<HomeRepoImp>())),
-          child: BookDetailsView(bookModel: state.extra as BookModel),
+          child: BookDetailsView(bookEntity: state.extra as BookEntity),
         ),
       ),
       GoRoute(

@@ -1,7 +1,7 @@
-import 'package:bookify/Features/Home/presentation/views/widgets/featured_books_listview.dart';
 import 'package:bookify/core/utils/assets.dart';
 import 'package:bookify/core/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'featured_books_listview_bloc_builder.dart';
 import 'newaest_books_listview.dart';
 import 'home_header.dart';
 
@@ -20,7 +20,7 @@ class HomeViewBody extends StatelessWidget {
             children: [
               const HomeHeader(),
               const SizedBox(height: 16),
-              const FeaturedBoxListView(),
+              const FeaturedBoxListViewBlocBuilder(),
               Padding(
                 padding: const EdgeInsets.only(top: 36, left: 24, bottom: 8),
                 child: Text(

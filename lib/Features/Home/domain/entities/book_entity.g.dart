@@ -23,6 +23,7 @@ class BookEntityAdapter extends TypeAdapter<BookEntity> {
       authorName: fields[3] as String?,
       price: fields[4] as num?,
       rating: fields[5] as String?,
+      previewLink: fields[6] as String?,
     );
   }
 

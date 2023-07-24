@@ -41,7 +41,7 @@ class NewestBooksListViewItem extends StatelessWidget {
                         bookEntity.title,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
-                        style: Styles.textStyle20.copyWith(
+                        style: Styles.textStyle18.copyWith(
                           fontFamily: FontAsset.kPlayFireFont,
                         ),
                       ),
@@ -63,7 +63,7 @@ class NewestBooksListViewItem extends StatelessWidget {
                       children: [
                         Text(
                           'Free',
-                          style: Styles.textStyle20.copyWith(
+                          style: Styles.textStyle18.copyWith(
                             fontFamily: FontAsset.kRoboto,
                             fontWeight: FontWeight.bold,
                           ),
