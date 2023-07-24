@@ -1,7 +1,7 @@
 import 'package:bookify/core/utils/assets.dart';
 import 'package:bookify/core/utils/styles.dart';
 import 'package:flutter/material.dart';
-import 'featured_books_listview_bloc_builder.dart';
+import 'featured_books_listview_bloc_consumer.dart';
 import 'newaest_books_listview.dart';
 import 'home_header.dart';
 

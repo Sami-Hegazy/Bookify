@@ -1,9 +1,9 @@
 import 'package:bookify/Features/Home/domain/entities/book_entity.dart';
+import 'package:bookify/Features/Home/presentation/views/widgets/featured_books_listview_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utils/functions/sackbar_error.dart';
 import '../../../../../core/widgets/custom_error_widget.dart';
-import '../../../../../core/widgets/simmer.dart';
 import '../../manager/featured_books_cubit/featured_books_cubit.dart';
 import 'featured_books_listview.dart';
 
@@ -33,7 +33,7 @@ class FeaturedBoxListViewBlocConsumer extends StatelessWidget {
       } else if (state is FeaturedBooksFailure) {
         return CustomErrorWidget(errorMessage: state.errorMessage);
       } else {
-        return const BuildHorizonatlListShimmer();
+        return const FeaturedBooksListviewLoadingIndicator();
       }
     });
   }
