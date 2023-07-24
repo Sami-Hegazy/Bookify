@@ -128,7 +128,7 @@ class BuildHorizonatlListShimmer extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.all(8.0),
             child: CustomWidget.rectangular(
-              height: 200,
+              height: 250,
               width: MediaQuery.of(context).size.width * 0.3,
             ),
           );

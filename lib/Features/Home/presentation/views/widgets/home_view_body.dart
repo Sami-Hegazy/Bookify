@@ -20,7 +20,7 @@ class HomeViewBody extends StatelessWidget {
             children: [
               const HomeHeader(),
               const SizedBox(height: 16),
-              const FeaturedBoxListViewBlocBuilder(),
+              const FeaturedBoxListViewBlocConsumer(),
               Padding(
                 padding: const EdgeInsets.only(top: 36, left: 24, bottom: 8),
                 child: Text(

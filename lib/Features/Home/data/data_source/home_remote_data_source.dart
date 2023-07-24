@@ -6,7 +6,7 @@ import 'package:flutter/cupertino.dart';
 import '../../../../core/utils/functions/cache_books.dart';
 
 abstract class HomeRemoteDataSource {
-  Future<List<BookEntity>> fetchFeaturedBooks();
+  Future<List<BookEntity>> fetchFeaturedBooks({int pageNumber = 0});
   Future<List<BookEntity>> fetchNewestBooks();
   Future<List<BookEntity>> fetchSimilarBooks();
 }
@@ -18,9 +18,10 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   });
 
   @override
-  Future<List<BookEntity>> fetchFeaturedBooks() async {
+  Future<List<BookEntity>> fetchFeaturedBooks({int pageNumber = 0}) async {
     var data = await apiService.get(
-        endPoint: 'volumes?Filtering=free-ebooks&q=computer science');
+        endPoint:
+            'volumes?Filtering=free-ebooks&q=programming&startIndex=${pageNumber * 10}');
 
     List<BookEntity> books = getBookList(data);
     cacheBooksDate(books, kFeaturedBox);
