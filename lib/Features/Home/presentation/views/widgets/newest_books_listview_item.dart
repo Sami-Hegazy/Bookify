@@ -1,4 +1,4 @@
-import 'package:bookify/Features/Home/data/models/book_model/book_model.dart';
+import 'package:bookify/Features/Home/domain/entities/book_entity.dart';
 import 'package:bookify/Features/Home/presentation/views/widgets/aspect_ratio_image.dart';
 import 'package:bookify/core/utils/app_routes.dart';
 import 'package:bookify/core/utils/assets.dart';
@@ -8,14 +8,15 @@ import 'package:go_router/go_router.dart';
 import 'book_rating.dart';
 
 class NewestBooksListViewItem extends StatelessWidget {
-  const NewestBooksListViewItem({super.key, required this.bookModel});
+  const NewestBooksListViewItem({super.key, required this.bookEntity});
 
-  final BookModel bookModel;
+  final BookEntity bookEntity;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRoutes.kBookDetailsView, extra: bookModel);
+        GoRouter.of(context)
+            .push(AppRoutes.kBookDetailsView, extra: bookEntity);
       },
       child: Container(
         height: 120,
@@ -25,7 +26,7 @@ class NewestBooksListViewItem extends StatelessWidget {
             AspectRatioImage(
               aspectRatio: 2.5 / 4,
               borderRadius: BorderRadius.circular(6),
-              imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
+              imageUrl: bookEntity.image ?? '',
             ),
             const SizedBox(width: 24),
             Expanded(
@@ -37,7 +38,7 @@ class NewestBooksListViewItem extends StatelessWidget {
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.6,
                       child: Text(
-                        bookModel.volumeInfo.title!,
+                        bookEntity.title,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: Styles.textStyle20.copyWith(
@@ -49,7 +50,7 @@ class NewestBooksListViewItem extends StatelessWidget {
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.6,
                       child: Text(
-                        bookModel.volumeInfo.authors!.first,
+                        bookEntity.authorName!,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: Styles.textStyle14.copyWith(
@@ -69,7 +70,7 @@ class NewestBooksListViewItem extends StatelessWidget {
                         ),
                         const Spacer(),
                         BookRating(
-                          rating: bookModel.volumeInfo.pageCount!,
+                          rating: bookEntity.rating!,
                           count: '4.8',
                         ),
                       ],

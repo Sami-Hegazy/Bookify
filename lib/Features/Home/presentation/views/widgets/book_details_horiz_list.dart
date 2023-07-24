@@ -28,9 +28,7 @@ class SimilarBooksListView extends StatelessWidget {
                   child: AspectRatioImage(
                     aspectRatio: 2.5 / 4,
                     borderRadius: BorderRadius.circular(8),
-                    imageUrl:
-                        state.books[index].volumeInfo.imageLinks?.thumbnail ??
-                            '',
+                    imageUrl: state.books[index].image ?? '',
                   ),
                 );
               },

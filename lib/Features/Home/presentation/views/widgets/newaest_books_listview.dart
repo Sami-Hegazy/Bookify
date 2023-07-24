@@ -18,7 +18,7 @@ class NewestBooksListView extends StatelessWidget {
             itemCount: state.books.length,
             itemBuilder: (context, index) {
               return NewestBooksListViewItem(
-                bookModel: state.books[index],
+                bookEntity: state.books[index],
               );
             },
           );

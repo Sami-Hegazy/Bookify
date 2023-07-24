@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'featured_books_state.dart';
 
 class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
-  FeaturedBooksCubit(this.fetchFeaturedBooksUseCase)
+  FeaturedBooksCubit({required this.fetchFeaturedBooksUseCase})
       : super(FeaturedBooksInitial());
 
   final FetchFeaturedBooksUseCase fetchFeaturedBooksUseCase;

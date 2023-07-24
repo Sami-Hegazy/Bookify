@@ -1,5 +1,7 @@
 import 'package:bookify/Features/Home/data/Repo/home_repo_impl.dart';
 import 'package:bookify/Features/Home/domain/entities/book_entity.dart';
+import 'package:bookify/Features/Home/domain/use%20cases/fetch_featured_books_use_case.dart';
+import 'package:bookify/Features/Home/domain/use%20cases/fetch_news_books_use_case.dart';
 import 'package:bookify/Features/Home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookify/Features/Home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
 import 'package:bookify/core/utils/colors.dart';
@@ -29,12 +31,16 @@ class BookifyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => FeaturedBooksCubit(getIt.get<HomeRepoImp>())
+          create: (context) => FeaturedBooksCubit(
+              fetchFeaturedBooksUseCase:
+                  FetchFeaturedBooksUseCase(getIt.get<HomeRepoImp>()))
             ..fetchFeaturedBooks(),
         ),
         BlocProvider(
-          create: (context) =>
-              NewestBooksCubit(getIt.get<HomeRepoImp>())..ferchNewestBookks(),
+          create: (context) => NewestBooksCubit(
+              fetchNewsBooksUseCase:
+                  FetchNewsBooksUseCase(getIt.get<HomeRepoImp>()))
+            ..ferchNewestBookks(),
         ),
       ],
       child: MaterialApp.router(

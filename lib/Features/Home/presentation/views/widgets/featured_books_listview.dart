@@ -32,9 +32,7 @@ class FeaturedBoxListView extends StatelessWidget {
                     },
                     child: AspectRatioImage(
                       aspectRatio: 2.5 / 4,
-                      imageUrl:
-                          state.books[index].volumeInfo.imageLinks?.thumbnail ??
-                              '',
+                      imageUrl: state.books[index].image ?? '',
                     ),
                   ),
                 );

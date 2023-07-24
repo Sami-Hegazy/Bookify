@@ -5,11 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'similar_books_state.dart';
 
 class SimilarBooksCubit extends Cubit<SimilarBooksState> {
-  SimilarBooksCubit(this.fetchSimilarBooksUseCase)
+  SimilarBooksCubit({required this.fetchSimilarBooksUseCase})
       : super(SimilarBooksCubitInitial());
   final FetchSimilarBooksUseCase fetchSimilarBooksUseCase;
 
-  Future<void> ferchSimilarBookks() async {
+  Future<void> fetchSimilarBookks() async {
     emit(SimilarBooksCubitLoading());
     var result = await fetchSimilarBooksUseCase.call();
     result.fold((failure) {

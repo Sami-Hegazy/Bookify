@@ -5,7 +5,8 @@ import 'package:equatable/equatable.dart';
 part 'newest_books_state.dart';
 
 class NewestBooksCubit extends Cubit<NewestBooksState> {
-  NewestBooksCubit(this.fetchNewsBooksUseCase) : super(NewestBooksInitial());
+  NewestBooksCubit({required this.fetchNewsBooksUseCase})
+      : super(NewestBooksInitial());
   final FetchNewsBooksUseCase fetchNewsBooksUseCase;
 
   Future<void> ferchNewestBookks() async {

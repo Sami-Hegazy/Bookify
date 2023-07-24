@@ -6,7 +6,7 @@ import '../../../../../core/utils/styles.dart';
 
 class BookRating extends StatelessWidget {
   const BookRating({super.key, required this.rating, required this.count});
-  final int rating;
+  final String rating;
   final String count;
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class BookRating extends StatelessWidget {
         ),
         const SizedBox(width: 6.3),
         Text(
-          rating.toString(),
+          rating,
           style: Styles.textStyle16.copyWith(
             fontWeight: FontWeight.bold,
           ),
